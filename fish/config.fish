@@ -13,5 +13,8 @@ alias vim 'nvim'
 rvm default
 
 set -x PATH $PATH /opt/nvim-linux64/bin
+set -x PATH $PATH /usr/local/go/bin
+set -x DOCKER_HOST unix:///var/run/docker.sock
+
 
 eval (direnv hook fish)
