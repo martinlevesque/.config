@@ -9,6 +9,8 @@ end
 # aliases
 alias vi 'nvim'
 alias vim 'nvim'
+alias lgit 'lazygit'
+alias ldocker 'lazydocker'
 
 rvm default
 
