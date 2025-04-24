@@ -17,6 +17,9 @@ rvm default
 set -x PATH $PATH /opt/nvim-linux64/bin
 set -x PATH $PATH /usr/local/go/bin
 set -x DOCKER_HOST unix:///var/run/docker.sock
+set -x POSTGRES_HOST_PORT 55555
 
+# python related:
+pyenv init - fish | source
 
 eval (direnv hook fish)
