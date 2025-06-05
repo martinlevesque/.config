@@ -14,7 +14,7 @@ alias ldocker 'lazydocker'
 
 rvm default
 
-set -x PATH $PATH /opt/nvim-linux64/bin
+set -x PATH $PATH /opt/nvim-linux-x86_64/bin
 set -x PATH $PATH /usr/local/go/bin
 set -x DOCKER_HOST unix:///var/run/docker.sock
 set -x POSTGRES_HOST_PORT 55555
