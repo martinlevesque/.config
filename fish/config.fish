@@ -23,3 +23,4 @@ set -x POSTGRES_HOST_PORT 55555
 pyenv init - fish | source
 
 eval (direnv hook fish)
+
