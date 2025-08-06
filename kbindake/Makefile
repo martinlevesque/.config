@@ -81,7 +81,7 @@ move-left:
 	if [ -n "$$WINDOW_ID" ]; then \
 		wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz; \
 		sleep 0.0001; \
-		xdotool windowsize $$WINDOW_ID 50% 100%; \
+		xdotool windowsize $$WINDOW_ID 50% 98%; \
 		sleep 0.0001; \
 		xdotool windowmove $$WINDOW_ID 0 0; \
 		wmctrl -r :ACTIVE: -b add,above; \
@@ -100,7 +100,7 @@ move-right:
 		sleep 0.0001; \
 		WIDTH=$$(xdpyinfo | awk '/dimensions:/ {print $$2}' | cut -d 'x' -f1); \
 		HALF_WIDTH=$$(($$WIDTH / 2)); \
-		xdotool windowsize $$WINDOW_ID 50% 100%; \
+		xdotool windowsize $$WINDOW_ID 50% 98%; \
 		sleep 0.0001; \
 		xdotool windowmove $$WINDOW_ID $$HALF_WIDTH 0; \
 		wmctrl -r :ACTIVE: -b add,above; \
