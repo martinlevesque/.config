@@ -43,6 +43,15 @@ rubymine:
 	fi; \
 	echo "rubymine"
 
+# bindake: <Super>+<Ctrl>+E
+webstorm:
+	if pgrep WebStorm > /dev/null; then \
+	    wmctrl -xa jetbrains-webstorm.jetbrains-webstorm; \
+	else \
+	    setsid /home/martin/Desktop/webstorm.sh > /dev/null 2>&1 < /dev/null & \
+	fi; \
+	echo "webstorm!"
+
 
 # bindake: <Super>+<Ctrl>+D
 dbeaver:
@@ -56,10 +65,51 @@ dbeaver:
 # bindake: <Super>+<Ctrl>+W
 Workspace: firefox chrome rubymine terminal dbeaver  slack
 
-# bindake[overlay-command-output]: <Super>+M
+# bindake[overlay-command-output]: <Super>+<Ctrl>+M
 minimize:
 	xdotool getactivewindow windowminimize
 	echo ""
+
+# bindake[overlay-command-output]: <Super>+M
+maximize:
+	xdotool getactivewindow windowsize 100% 100% windowmove 0 0
+	echo ""
+
+# bindake[overlay-command-output]: <Super>+<Left>
+move-left:
+	@WINDOW_ID=$$(xdotool getactivewindow); \
+	if [ -n "$$WINDOW_ID" ]; then \
+		wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz; \
+		sleep 0.1; \
+		xdotool windowsize $$WINDOW_ID 50% 100%; \
+		sleep 0.05; \
+		xdotool windowmove $$WINDOW_ID 0 0; \
+		wmctrl -r :ACTIVE: -b add,above; \
+		wmctrl -r :ACTIVE: -b remove,above; \
+		xdotool windowactivate $$WINDOW_ID; \
+		echo "<-"; \
+	else \
+		echo "No active window found"; \
+	fi
+
+# bindake[overlay-command-output]: <Super>+<Right>
+move-right:
+	@WINDOW_ID=$$(xdotool getactivewindow); \
+	if [ -n "$$WINDOW_ID" ]; then \
+		wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz; \
+		sleep 0.1; \
+		WIDTH=$$(xdpyinfo | awk '/dimensions:/ {print $$2}' | cut -d 'x' -f1); \
+		HALF_WIDTH=$$(($$WIDTH / 2)); \
+		xdotool windowsize $$WINDOW_ID 50% 100%; \
+		sleep 0.05; \
+		xdotool windowmove $$WINDOW_ID $$HALF_WIDTH 0; \
+		wmctrl -r :ACTIVE: -b add,above; \
+		wmctrl -r :ACTIVE: -b remove,above; \
+		xdotool windowactivate $$WINDOW_ID; \
+		echo "->"; \
+	else \
+		echo "No active window found"; \
+	fi
 
 # bindake[overlay-command-output]: <Super>+<Ctrl>+K
 kill:
