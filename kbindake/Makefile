@@ -97,6 +97,3 @@ kill:
 		exit 1; \
 	fi
 
-# bindake[overlay-command-output]: <Super>+<F1>
-
-
