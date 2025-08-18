@@ -8,49 +8,49 @@ define launch
 	if [ -n "$(4)" ]; then echo "$(4)"; fi
 endef
 
-# bindake[autoboot,overlay-command-output]: <Super>+<Ctrl>+F
+# kbindake[autoboot,overlay-command-output]: <Super>+<Ctrl>+F
 firefox:
-	$(call launch,-x firefox-bin,firefox,firefox,Firefox Browser)
+	$(call launch,-x firefox-bin,firefox,firefox,🌐 Firefox Browser)
 
-# bindake: <Super>+<Ctrl>+G
+# kbindake: <Super>+<Ctrl>+G
 chrome:
-	$(call launch,-x chrome,google-chrome,google-chrome,Chrome Browser)
+	$(call launch,-x chrome,google-chrome,google-chrome,🌐 Chrome Browser)
 
-# bindake: <Super>+<Ctrl>+T
+# kbindake: <Super>+<Ctrl>+T
 terminal:
 	$(call launch,-f gnome-terminal,gnome-terminal,/home/martin/Desktop/VENTION-TERMINAL.sh,terminal)
 
-# bindake: <Super>+<Ctrl>+S
+# kbindake: <Super>+<Ctrl>+S
 slack:
 	$(call launch,slack,slack,slack,slack)
 
-# bindake: <Super>+<Ctrl>+R
+# kbindake: <Super>+<Ctrl>+R
 rubymine:
 	$(call launch,RubyMine,jetbrains-rubymine.jetbrains-rubymine,/home/martin/Desktop/rubymine.sh,rubymine)
 
-# bindake: <Super>+<Ctrl>+E
+# kbindake: <Super>+<Ctrl>+E
 webstorm:
 	$(call launch,WebStorm,jetbrains-webstorm.jetbrains-webstorm,/home/martin/Desktop/webstorm.sh,webstorm!)
 
 
-# bindake: <Super>+<Ctrl>+D
+# kbindake: <Super>+<Ctrl>+D
 dbeaver:
 	$(call launch,-x dbeaver,dbeaver,dbeaver,dbeaver)
 
-# bindake: <Super>+<Ctrl>+W
+# kbindake: <Super>+<Ctrl>+W
 Workspace: firefox chrome rubymine terminal dbeaver slack
 
-# bindake[overlay-command-output]: <Super>+<Ctrl>+M
+# kbindake[overlay-command-output]: <Super>+<Ctrl>+M
 minimize:
 	xdotool getactivewindow windowminimize
 	echo ""
 
-# bindake[overlay-command-output]: <Super>+M
+# kbindake[overlay-command-output]: <Super>+M
 maximize:
 	xdotool getactivewindow windowsize 100% 100% windowmove 0 0
 	echo ""
 
-# bindake[overlay-command-output]: <Super>+<Left>
+# kbindake[overlay-command-output]: <Super>+<Left>
 move-left:
 	@WINDOW_ID=$$(xdotool getactivewindow); \
 	if [ -n "$$WINDOW_ID" ]; then \
@@ -62,12 +62,12 @@ move-left:
 		wmctrl -r :ACTIVE: -b add,above; \
 		wmctrl -r :ACTIVE: -b remove,above; \
 		xdotool windowactivate $$WINDOW_ID; \
-		echo "<-"; \
+		echo "⬅️"; \
 	else \
 		echo "No active window found"; \
 	fi
 
-# bindake[overlay-command-output]: <Super>+<Right>
+# kbindake[overlay-command-output]: <Super>+<Right>
 move-right:
 	@WINDOW_ID=$$(xdotool getactivewindow); \
 	if [ -n "$$WINDOW_ID" ]; then \
@@ -81,12 +81,12 @@ move-right:
 		wmctrl -r :ACTIVE: -b add,above; \
 		wmctrl -r :ACTIVE: -b remove,above; \
 		xdotool windowactivate $$WINDOW_ID; \
-		echo "->"; \
+		echo "➡️"; \
 	else \
 		echo "No active window found"; \
 	fi
 
-# bindake[overlay-command-output]: <Super>+<Ctrl>+K
+# kbindake[overlay-command-output]: <Super>+<Ctrl>+K
 kill:
 	@echo "Killing process..."
 	@PID=$$(xdotool getwindowfocus getwindowpid 2>/dev/null); \
