@@ -16,9 +16,14 @@ firefox:
 chrome:
 	$(call launch,-x chrome,google-chrome,google-chrome,🌐 Chrome Browser)
 
+# kbindake[overlay-command-output]: <Super>+<Ctrl>+<F1>
+cheatsheets:
+	gnome-terminal -- nvim -c "cd ~/works/cheatsheets" ~/works/cheatsheets/ &
+	echo "What? Where? cheatsheets!"
+
 # kbindake: <Super>+<Ctrl>+T
 terminal:
-	$(call launch,-f gnome-terminal,gnome-terminal,/home/martin/Desktop/VENTION-TERMINAL.sh,terminal)
+	$(call launch,gnome-terminal,gnome-terminal,/home/martin/Desktop/VENTION-TERMINAL.sh,terminal)
 
 # kbindake: <Super>+<Ctrl>+S
 slack:
