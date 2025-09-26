@@ -24,3 +24,7 @@ pyenv init - fish | source
 
 eval (direnv hook fish)
 
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
