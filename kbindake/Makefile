@@ -18,7 +18,7 @@ chrome:
 
 # kbindake[overlay-command-output]: <Super>+<Ctrl>+<F1>
 cheatsheets:
-	gnome-terminal -- /opt/nvim-linux-x86_64/bin/nvim -c "cd ~/works/cheatsheets" ~/works/cheatsheets/ &
+	gnome-terminal -- bun /home/martin/works/fuzzer/fuzzer.ts /home/martin/works/cheatsheets/
 	echo "What? Where? cheatsheets!"
 
 # kbindake: <Super>+<Ctrl>+T
