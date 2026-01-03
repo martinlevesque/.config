@@ -23,7 +23,7 @@ cheatsheets:
 
 # kbindake: <Super>+<Ctrl>+T
 terminal:
-	$(call launch,gnome-terminal,gnome-terminal,/home/martin/Desktop/VENTION-TERMINAL.sh,terminal)
+	$(call launch,kitty,kitty,/home/martin/Desktop/VENTION-TERMINAL.sh,kitty)
 
 # kbindake: <Super>+<Ctrl>+S
 slack:
